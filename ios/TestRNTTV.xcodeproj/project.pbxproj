@@ -42,7 +42,6 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
-		F889799BD857422F8B74903B /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B974417B01A5404F91E0D535 /* libRNGestureHandler.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,20 +206,6 @@
 			remoteGlobalIDString = ED296FEE214C9CF800B7C4FE;
 			remoteInfo = "jsiexecutor-tvOS";
 		};
-		398AC6B92255614A00F423B8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 45FBCE0A61C640F6A8EEB62E /* RNGestureHandler.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNGestureHandler;
-		};
-		398AC6BB2255614A00F423B8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 45FBCE0A61C640F6A8EEB62E /* RNGestureHandler.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B5C32A36220C603B000FFB8D;
-			remoteInfo = "RNGestureHandler-tvOS";
-		};
 		398AC6F42255841A00F423B8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 69106A899A64477884683B88 /* ReactNativeTouchThroughView.xcodeproj */;
@@ -365,7 +350,6 @@
 		2D02E47B1E0B4A5D006451C7 /* TestRNTTV-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TestRNTTV-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* TestRNTTV-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TestRNTTV-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		45FBCE0A61C640F6A8EEB62E /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		687816E874494291BB72DD42 /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; };
 		69106A899A64477884683B88 /* ReactNativeTouchThroughView.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeTouchThroughView.xcodeproj; path = "../node_modules/react-native-touch-through-view/ios/ReactNativeTouchThroughView.xcodeproj"; sourceTree = "<group>"; };
@@ -404,7 +388,6 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				F889799BD857422F8B74903B /* libRNGestureHandler.a in Frameworks */,
 				303EA94DFD1B4521805E28C5 /* libReactNativeTouchThroughView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -573,15 +556,6 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		398AC6B52255614A00F423B8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				398AC6BA2255614A00F423B8 /* libRNGestureHandler.a */,
-				398AC6BC2255614A00F423B8 /* libRNGestureHandler-tvOS.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		398AC6F12255841900F423B8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -623,7 +597,6 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				45FBCE0A61C640F6A8EEB62E /* RNGestureHandler.xcodeproj */,
 				69106A899A64477884683B88 /* ReactNativeTouchThroughView.xcodeproj */,
 			);
 			name = Libraries;
@@ -837,10 +810,6 @@
 					ProductGroup = 398AC6F12255841900F423B8 /* Products */;
 					ProjectRef = 69106A899A64477884683B88 /* ReactNativeTouchThroughView.xcodeproj */;
 				},
-				{
-					ProductGroup = 398AC6B52255614A00F423B8 /* Products */;
-					ProjectRef = 45FBCE0A61C640F6A8EEB62E /* RNGestureHandler.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -998,20 +967,6 @@
 			fileType = archive.ar;
 			path = "libjsiexecutor-tvOS.a";
 			remoteRef = 398AC6B32255614A00F423B8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		398AC6BA2255614A00F423B8 /* libRNGestureHandler.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNGestureHandler.a;
-			remoteRef = 398AC6B92255614A00F423B8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		398AC6BC2255614A00F423B8 /* libRNGestureHandler-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libRNGestureHandler-tvOS.a";
-			remoteRef = 398AC6BB2255614A00F423B8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		398AC6F52255841A00F423B8 /* libReactNativeTouchThroughView.a */ = {
