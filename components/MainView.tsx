@@ -10,10 +10,6 @@ export default () => {
       style={{
         flex: 1,
         backgroundColor: color,
-        flexDirection: 'row',
-        width: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
       }}
     >
       <TouchableOpacity

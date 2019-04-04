@@ -2,13 +2,20 @@ import React from 'react'
 import MainView from './MainView'
 import BottomView from './BottomView'
 import {View} from 'react-native'
-import AnimatedPushComponent from './AnimatedPushComponent'
 
 export default () => (
   <View style={{flex: 1}}>
     <MainView />
-    <AnimatedPushComponent>
+    <View
+      pointerEvents="box-none"
+      style={{
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+      }}
+    >
       <BottomView />
-    </AnimatedPushComponent>
+    </View>
   </View>
 )
