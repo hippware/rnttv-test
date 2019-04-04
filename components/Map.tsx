@@ -1,10 +1,19 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Text, View} from 'react-native'
-import {TouchableHighlight, TouchableOpacity} from 'react-native-gesture-handler'
+import {
+  TouchableHighlight,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+} from 'react-native-gesture-handler'
 import {Actions} from 'react-native-router-flux'
 
+const defaultColor = 'lightblue'
+
 const Map = ({params}) => {
-  const [color, setColor] = useState('lightblue')
+  const [color, setColor] = useState(defaultColor)
+  useEffect(() => {
+    Actions.friends()
+  }, []) // Only re-run the effect if count changes
   return (
     <View
       style={{
@@ -15,12 +24,14 @@ const Map = ({params}) => {
         alignItems: 'center',
         justifyContent: 'center',
       }}
+      // onPressIn={() => setColor('white')}
     >
-      {/* <TouchableOpacity style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}
-                onPress={() => setColor(color === 'red' ? 'white' : 'red')}
-            >
-                <Text>Click to Change Color</Text>
-            </TouchableOpacity> */}
+      <TouchableOpacity
+        style={{flex: 1, alignItems: 'center', justifyContent: 'center', borderWidth: 1}}
+        onPress={() => setColor(color === defaultColor ? 'white' : defaultColor)}
+      >
+        <Text>Click to Change Color</Text>
+      </TouchableOpacity>
       <TouchableOpacity
         style={{height: 50, width: 100, borderWidth: 1}}
         onPress={() => Actions.friends()}
