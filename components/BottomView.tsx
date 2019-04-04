@@ -1,9 +1,8 @@
 import React, {useState} from 'react'
-import {Text, View, TextInput, TouchableWithoutFeedback} from 'react-native'
-import DraggablePopupList from './DraggablePopupList'
-import {TouchableOpacity, FlatList} from 'react-native-gesture-handler'
+import {Text, View, TextInput, TouchableOpacity, FlatList, Dimensions} from 'react-native'
 import {TouchThroughWrapper, TouchThroughView} from 'react-native-touch-through-view'
-import {width, height} from './Global'
+
+const {width, height} = Dimensions.get('window')
 
 const defaultColor = 'white'
 
@@ -13,7 +12,7 @@ const Item = ({item}) => {
     <View
       style={{
         height: 100,
-        width: '100%',
+        flex: 1,
         borderColor: 'red',
         borderWidth: 1,
         backgroundColor: color,
@@ -31,19 +30,14 @@ const Item = ({item}) => {
   )
 }
 
-const keyExtractor = item => item.toString()
-
-const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-
 const BottomView = ({params}) => (
   <TouchThroughWrapper style={{width, height}}>
     <FlatList
-      data={data}
+      data={[1, 2, 3, 4, 5, 6, 7, 8, 9, 0]}
       renderItem={({item}) => <Item item={item} />}
-      keyExtractor={keyExtractor}
+      keyExtractor={item => item.toString()}
       bounces={false}
       keyboardDismissMode="on-drag"
-      ListFooterComponent={<View style={{backgroundColor: 'white', height: 250}} />}
       style={{flex: 1}}
       ListHeaderComponent={
         <View style={{borderWidth: 1, borderColor: 'green'}}>
@@ -51,6 +45,7 @@ const BottomView = ({params}) => (
           <TextInput
             style={{
               flex: 1,
+              height: 50,
               fontSize: 16,
               borderWidth: 1,
               backgroundColor: 'white',

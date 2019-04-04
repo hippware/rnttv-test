@@ -1,66 +1,55 @@
 import React from 'react'
 import {Transitioner} from 'react-navigation-stack'
-import {View, Platform} from 'react-native'
+import {View} from 'react-native'
 import AnimatedPushScene from './AnimatedPushScene'
-import AnimatedMainScene from './AnimatedMainScene'
-// import BackButton from './BackButton'
 
-// type Props = {
-//   navigation: any,
-//   navigationConfig: any,
-//   descriptors: any,
-//   screenProps: any
-// }
+type Props = {
+  navigation: any
+  navigationConfig: any
+  descriptors: any
+  screenProps: any
+}
 
-export default class SplitRenderer extends React.Component {
+export default class SplitRenderer extends React.Component<Props> {
   _renderScene = (transitionProps, scene) => {
-    const {index} = scene
+    const {
+      index,
+      descriptor: {navigation, getComponent},
+    } = scene
     if (index === 0) {
-      // main screen
-      return (
-        <AnimatedMainScene transitionProps={transitionProps} key={scene.route.key} scene={scene} />
-      )
-    } else {
+      const Scene = getComponent()
       return (
         <View
           style={{
             position: 'absolute',
-            top: 0,
             left: 0,
             right: 0,
+            top: 0,
             bottom: 0,
-            // todo: remove borderWidth on Android (appears around edge of Bottom Menu screens)
-            borderWidth: Platform.OS === 'android' ? 1 : 0, // workaround to display 'Back' button for android
-            borderColor: 'transparent',
           }}
-          key={scene.route.key}
-          pointerEvents="box-none"
+          key={'0'}
         >
-          {/* <BackButton transitionProps={transitionProps} scene={scene} /> */}
-          <AnimatedPushScene transitionProps={transitionProps} scene={scene} />
+          <Scene navigation={navigation} />
         </View>
+      )
+    } else {
+      return (
+        <AnimatedPushScene transitionProps={transitionProps} scene={scene} key={scene.route.key} />
       )
     }
   }
 
-  _render = (transitionProps, prevTransitionProps) => {
+  _render = transitionProps => {
     const scenes = transitionProps.scenes.map(scene => this._renderScene(transitionProps, scene))
     return <View style={{flex: 1}}>{scenes}</View>
   }
-  onTransitionStart = () => null
-  onTransitionEnd = () => null
   render() {
-    const TransitionerAny = Transitioner
     return (
-      <TransitionerAny
+      <Transitioner
         screenProps={this.props.screenProps}
         descriptors={this.props.descriptors}
-        // NOTE: our transition animations don't need to be configurable
-        configureTransition={null}
         navigation={this.props.navigation}
         render={this._render}
-        onTransitionStart={this.onTransitionStart}
-        onTransitionEnd={this.onTransitionEnd}
       />
     )
   }
