@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {View, TouchableOpacity} from 'react-native'
 
-export default ({params}) => {
+export default () => {
   const defaultColor = 'lightblue'
   const [color, setColor] = useState(defaultColor)
 

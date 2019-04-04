@@ -1,12 +1,9 @@
 import React from 'react'
 import {Animated, Dimensions} from 'react-native'
 
-type Props = {
-  scene: any
-  transitionProps: any
-}
+type Props = {}
 
-const {width: dWidth, height} = Dimensions.get('window')
+const {height} = Dimensions.get('window')
 
 class AnimatedPushScene extends React.Component<Props> {
   viewHeight: number = height - 500
@@ -32,13 +29,6 @@ class AnimatedPushScene extends React.Component<Props> {
   }
 
   render() {
-    const {
-      descriptor: {navigation, getComponent},
-      route: {
-        params: {fromTop},
-      },
-    } = this.props.scene
-    const Scene = getComponent()
     return (
       <Animated.View
         pointerEvents="box-none"
@@ -46,17 +36,15 @@ class AnimatedPushScene extends React.Component<Props> {
           position: 'absolute',
           left: 0,
           right: 0,
-          top: fromTop ? 0 : undefined,
-          bottom: fromTop ? undefined : 0,
+          bottom: 0,
           transform: [
             {
               translateY: this.slideHeight,
-              // TODO: opacity - fade in on show and fade out on hide
             },
           ],
         }}
       >
-        <Scene navigation={navigation} />
+        {this.props.children}
       </Animated.View>
     )
   }
