@@ -7,7 +7,11 @@ type Props = {
   transitionProps: any
 }
 
+const {height} = Dimensions.get('window')
+
 class AnimatedMainScene extends React.Component<Props> {
+  isOffset: boolean = false
+
   state = {
     yOffset: new Animated.Value(0),
   }
@@ -30,6 +34,7 @@ class AnimatedMainScene extends React.Component<Props> {
   }
 
   slideSceneTo = toHeight => {
+    this.isOffset = toHeight !== 0
     Animated.spring(this.state.yOffset, {
       toValue: toHeight,
       useNativeDriver: true,
@@ -40,15 +45,14 @@ class AnimatedMainScene extends React.Component<Props> {
     const {scene} = this.props
     const {navigation, getComponent} = scene.descriptor
     const Scene = getComponent()
-    const {width: dWidth, height: dHeight} = Dimensions.get('window')
     return (
       <Animated.View
         style={{
           position: 'absolute',
           left: 0,
           right: 0,
-          top: 0,
-          height: dHeight,
+          top: this.isOffset ? -85 : 0,
+          height: this.isOffset ? height + 150 : height,
           transform: [
             {
               translateY: this.state.yOffset,

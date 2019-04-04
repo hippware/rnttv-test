@@ -1,8 +1,8 @@
 import React from 'react'
-import {Platform, StyleSheet, Text, View} from 'react-native'
-import {Actions, Router, Scene, Stack, Modal, Lightbox, Tabs} from 'react-native-router-flux'
+import {StyleSheet} from 'react-native'
+import {Router, Scene, Stack, Modal, Lightbox, Tabs} from 'react-native-router-flux'
 import Map from './Map'
-import List from './List'
+import BottomView from './BottomView'
 import SplitRenderer from './SplitRenderer'
 
 export default class App extends React.Component {
@@ -23,7 +23,7 @@ export default class App extends React.Component {
                   <Stack>
                     <Stack hideNavBar renderer={SplitRenderer}>
                       <Scene key="home" component={Map} hideNavBar />
-                      <Scene key="friends" component={List} />
+                      <Scene key="friends" component={BottomView} />
                     </Stack>
                   </Stack>
                 </Modal>
